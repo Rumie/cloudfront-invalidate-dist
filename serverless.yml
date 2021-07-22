@@ -11,8 +11,6 @@ provider:
   iamRoleStatements:
     - Effect: "Allow"
       Action:
-        - "codepipeline:PutJobFailureResult"
-        - "codepipeline:PutJobSuccessResult"
         - "cloudfront:CreateInvalidation"
       Resource: "*"
 
