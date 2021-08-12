@@ -11,9 +11,14 @@ provider:
   iamRoleStatements:
     - Effect: "Allow"
       Action:
+        - "codepipeline:PutJobFailureResult"
+        - "codepipeline:PutJobSuccessResult"
         - "cloudfront:CreateInvalidation"
       Resource: "*"
 
 functions:
-  invalidate:
-    handler: handler.handler
+  invalidate-via-code:
+    handler: cloudfront-invalidate-via-code/handler.handler
+
+  invalidate-via-pipeline:
+    handler: cloudfront-invalidate-via-pipeline/handler.handler
